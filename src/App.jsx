@@ -15,6 +15,7 @@ export default function App() {
   const [selectedId, setSelectedId] = useState(null);
   const [textAnswer, setTextAnswer] = useState('');
   const [wasCorrect, setWasCorrect] = useState(false);
+  const [timedOut, setTimedOut] = useState(false);
   const [nickname, setNickname] = useState('');
 
   const resetQuestionState = () => {
@@ -22,6 +23,7 @@ export default function App() {
     setSelectedId(null);
     setTextAnswer('');
     setWasCorrect(false);
+    setTimedOut(false);
   };
 
   const startGame = (playerNickname = '') => {
@@ -57,6 +59,12 @@ export default function App() {
     const correct = isCorrectAnswer(input, questions[questionIndex].pokemon);
     setTextAnswer(input.trim());
     recordAnswer(correct);
+  };
+
+  const handleTimeUp = () => {
+    if (answered) return;
+    setTimedOut(true);
+    recordAnswer(false);
   };
 
   const handleNext = () => {
@@ -107,10 +115,12 @@ export default function App() {
           score={score}
           answered={answered}
           wasCorrect={wasCorrect}
+          timedOut={timedOut}
           selectedId={selectedId}
           textAnswer={textAnswer}
           onSelect={handleSelect}
           onTextSubmit={handleTextSubmit}
+          onTimeUp={handleTimeUp}
           onNext={handleNext}
         />
       )}

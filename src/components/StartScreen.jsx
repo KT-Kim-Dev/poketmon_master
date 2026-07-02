@@ -5,6 +5,8 @@ import {
   QUESTIONS_PER_STAGE,
   MULTIPLE_CHOICE_MAX_STAGE,
   SILHOUETTE_MIN_STAGE,
+  STAGE_TIME_MAX,
+  STAGE_TIME_MIN,
   GRADE_TABLE,
   normalizeNickname,
 } from '../utils/game';
@@ -39,7 +41,11 @@ export default function StartScreen({ initialNickname = '', onStart }) {
           <strong>{SILHOUETTE_MIN_STAGE}~{TOTAL_STAGES}단계</strong>: 포켓몬 이미지 검정
           실루엣
         </p>
-        <p>정답 1문제당 1점 · 최고 {TOTAL_QUESTIONS}점</p>
+        <p>
+          <strong>제한 시간</strong>: 1단계 {STAGE_TIME_MAX}초 → 10단계 {STAGE_TIME_MIN}초 (단계별
+          점진적 단축)
+        </p>
+        <p>정답 1문제당 1점 · 최고 {TOTAL_QUESTIONS}점 · 시간 초과 시 오답</p>
       </div>
 
       <table className="grade-table">

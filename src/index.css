@@ -176,8 +176,55 @@ code {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
   font-size: 0.9rem;
+  gap: 0.5rem;
+}
+
+.timer-display {
+  font-weight: 700;
+  color: #374151;
+  white-space: nowrap;
+}
+
+.timer-display.urgent {
+  color: #dc2626;
+  animation: pulse 0.8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.timer-bar {
+  height: 4px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.timer-fill {
+  height: 100%;
+  background: #3b82f6;
+  border-radius: 999px;
+  transition: width 1s linear;
+}
+
+.timer-fill.urgent {
+  background: #ef4444;
+}
+
+.progress-text {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
 }
 
 .stage-badge {
@@ -198,10 +245,6 @@ code {
   font-size: 0.75rem;
   font-weight: 500;
   color: #78350f;
-}
-
-.progress-text {
-  color: #6b7280;
 }
 
 .progress-bar {
@@ -235,16 +278,23 @@ code {
   color: #374151;
 }
 
+.pokemon-image-wrap {
+  display: inline-block;
+  line-height: 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
 .pokemon-image {
   width: 200px;
   height: 200px;
   object-fit: contain;
   display: block;
-}
-
-.pokemon-image-wrap {
-  display: inline-block;
-  line-height: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  user-drag: none;
+  pointer-events: none;
 }
 
 .pokemon-image-wrap.silhouette-wrap {

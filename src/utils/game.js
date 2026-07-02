@@ -4,6 +4,8 @@ export const TOTAL_STAGES = TOTAL_QUESTIONS / QUESTIONS_PER_STAGE;
 export const CHOICES_COUNT = 4;
 export const MULTIPLE_CHOICE_MAX_STAGE = 4;
 export const SILHOUETTE_MIN_STAGE = 8;
+export const STAGE_TIME_MAX = 10; // 1단계 (초)
+export const STAGE_TIME_MIN = 5; // 10단계 (초)
 
 /** Fisher-Yates 셔플 */
 export function shuffle(array) {
@@ -43,6 +45,13 @@ export function isSilhouetteStage(stage) {
 /** questionIndex 기준 실루엣 여부 (8단계 = index 21부터) */
 export function isSilhouetteQuestion(questionIndex) {
   return isSilhouetteStage(getStageInfo(questionIndex).stage);
+}
+
+/** 단계별 제한 시간 (1단계 10초 → 10단계 5초, 선형 보간) */
+export function getStageTimeLimit(stage) {
+  if (TOTAL_STAGES <= 1) return STAGE_TIME_MAX;
+  const progress = (stage - 1) / (TOTAL_STAGES - 1);
+  return Math.round(STAGE_TIME_MAX - (STAGE_TIME_MAX - STAGE_TIME_MIN) * progress);
 }
 
 /** 1~4단계: 객관식, 5~10단계: 주관식 */
