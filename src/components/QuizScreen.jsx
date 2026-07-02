@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { TOTAL_QUESTIONS, getStageTimeLimit } from '../utils/game';
+import { TOTAL_QUESTIONS, QUESTIONS_PER_STAGE, getStageTimeLimit } from '../utils/game';
 
 export default function QuizScreen({
   baseUrl,
@@ -92,7 +92,7 @@ export default function QuizScreen({
     <section className="screen quiz-screen">
       <header className="quiz-header">
         <div className="stage-badge">
-          {stage}단계 · {questionInStage}/3
+          {stage}단계 · {questionInStage}/{QUESTIONS_PER_STAGE}
           <span className="mode-tag">{isChoice ? '객관식' : '주관식'}</span>
           {isSilhouette && <span className="mode-tag silhouette-tag">실루엣</span>}
         </div>

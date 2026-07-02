@@ -1,6 +1,6 @@
-export const TOTAL_QUESTIONS = 30;
-export const QUESTIONS_PER_STAGE = 3;
-export const TOTAL_STAGES = TOTAL_QUESTIONS / QUESTIONS_PER_STAGE;
+export const QUESTIONS_PER_STAGE = 5;
+export const TOTAL_STAGES = 10;
+export const TOTAL_QUESTIONS = TOTAL_STAGES * QUESTIONS_PER_STAGE;
 export const CHOICES_COUNT = 4;
 export const SILHOUETTE_MIN_STAGE = 8;
 export const STAGE_TIME_MAX = 10; // 1단계 (초)
@@ -16,7 +16,7 @@ export function shuffle(array) {
   return arr;
 }
 
-/** 1~151 중 중복 없이 count개 랜덤 선택 */
+/** 1~1025 중 중복 없이 count개 랜덤 선택 */
 export function pickRandomPokemon(allPokemon, count) {
   return shuffle(allPokemon).slice(0, count);
 }
@@ -41,7 +41,7 @@ export function isSilhouetteStage(stage) {
   return stage >= SILHOUETTE_MIN_STAGE;
 }
 
-/** questionIndex 기준 실루엣 여부 (8단계 = index 21부터) */
+/** questionIndex 기준 실루엣 여부 (8단계 = index 35부터) */
 export function isSilhouetteQuestion(questionIndex) {
   return isSilhouetteStage(getStageInfo(questionIndex).stage);
 }
@@ -69,17 +69,17 @@ export function createQuestions(allPokemon) {
 
 /** README 등급 기준에 따른 등급 판정 */
 export function getGrade(score) {
-  if (score >= 28) return { label: '포켓몬 마스터', key: 'master' };
-  if (score >= 20) return { label: '포켓몬 트레이너', key: 'trainer' };
-  if (score >= 10) return { label: '지식인', key: 'scholar' };
+  if (score >= 47) return { label: '포켓몬 마스터', key: 'master' };
+  if (score >= 33) return { label: '포켓몬 트레이너', key: 'trainer' };
+  if (score >= 17) return { label: '지식인', key: 'scholar' };
   return { label: '일반인', key: 'ordinary' };
 }
 
 export const GRADE_TABLE = [
-  { range: '28점 이상', label: '포켓몬 마스터' },
-  { range: '20~27점', label: '포켓몬 트레이너' },
-  { range: '10~19점', label: '지식인' },
-  { range: '10점 미만', label: '일반인' },
+  { range: '47점 이상', label: '포켓몬 마스터' },
+  { range: '33~46점', label: '포켓몬 트레이너' },
+  { range: '17~32점', label: '지식인' },
+  { range: '17점 미만', label: '일반인' },
 ];
 
 /** 닉네임 정규화 (공백 제거, 최대 12자) */

@@ -11,6 +11,7 @@
 
 const RANKINGS_PATH = 'data/rankings.json';
 const MAX_RANKINGS = 10;
+const MAX_SCORE = 50;
 const MAX_RETRIES = 3;
 
 const CORS_HEADERS = {
@@ -67,8 +68,8 @@ async function handlePostRanking(request, env) {
   if (!nickname) {
     return json({ error: 'nickname is required' }, 400);
   }
-  if (!Number.isInteger(score) || score < 0 || score > 30) {
-    return json({ error: 'score must be an integer between 0 and 30' }, 400);
+  if (!Number.isInteger(score) || score < 0 || score > MAX_SCORE) {
+    return json({ error: `score must be an integer between 0 and ${MAX_SCORE}` }, 400);
   }
   if (!grade) {
     return json({ error: 'grade is required' }, 400);
