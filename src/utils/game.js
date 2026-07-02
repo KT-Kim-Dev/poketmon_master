@@ -2,7 +2,6 @@ export const TOTAL_QUESTIONS = 30;
 export const QUESTIONS_PER_STAGE = 3;
 export const TOTAL_STAGES = TOTAL_QUESTIONS / QUESTIONS_PER_STAGE;
 export const CHOICES_COUNT = 4;
-export const MULTIPLE_CHOICE_MAX_STAGE = 4;
 export const SILHOUETTE_MIN_STAGE = 8;
 export const STAGE_TIME_MAX = 10; // 1단계 (초)
 export const STAGE_TIME_MIN = 5; // 10단계 (초)
@@ -54,23 +53,16 @@ export function getStageTimeLimit(stage) {
   return Math.round(STAGE_TIME_MAX - (STAGE_TIME_MAX - STAGE_TIME_MIN) * progress);
 }
 
-/** 1~4단계: 객관식, 5~10단계: 주관식 */
-export function getQuestionType(questionIndex) {
-  const { stage } = getStageInfo(questionIndex);
-  return stage <= MULTIPLE_CHOICE_MAX_STAGE ? 'choice' : 'text';
-}
-
 /** 전체 문제 목록 생성 */
 export function createQuestions(allPokemon) {
   const selected = pickRandomPokemon(allPokemon, TOTAL_QUESTIONS);
   return selected.map((pokemon, index) => {
-    const type = getQuestionType(index);
     const isSilhouette = isSilhouetteQuestion(index);
     return {
       pokemon,
-      type,
+      type: 'choice',
       isSilhouette,
-      choices: type === 'choice' ? buildChoices(pokemon, allPokemon) : null,
+      choices: buildChoices(pokemon, allPokemon),
     };
   });
 }
