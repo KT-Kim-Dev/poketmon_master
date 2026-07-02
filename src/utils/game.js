@@ -16,7 +16,7 @@ export function shuffle(array) {
   return arr;
 }
 
-/** 1~151 중 중복 없이 count개 랜덤 선택 */
+/** 1~1025 중 중복 없이 count개 랜덤 선택 */
 export function pickRandomPokemon(allPokemon, count) {
   return shuffle(allPokemon).slice(0, count);
 }

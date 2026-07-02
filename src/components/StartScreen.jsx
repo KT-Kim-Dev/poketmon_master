@@ -22,7 +22,7 @@ export default function StartScreen({ initialNickname = '', onStart }) {
   return (
     <section className="screen start-screen">
       <h1>포켓몬 마스터</h1>
-      <p className="subtitle">관동지방 포켓몬 이름 맞추기</p>
+      <p className="subtitle">1~9세대 포켓몬 이름 맞추기</p>
 
       <div className="rules">
         <p>

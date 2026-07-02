@@ -1,5 +1,5 @@
 /**
- * PokeAPI에서 관동지방(1~151번) 포켓몬 데이터를 수집하는 스크립트.
+ * PokeAPI에서 1~9세대(1~1025번) 포켓몬 데이터를 수집하는 스크립트.
  *
  * 생성물:
  *  - public/data/pokemon.json      : 게임에서 사용할 포켓몬 목록 (id, 한글/영문 이름, 이미지 경로)
@@ -12,7 +12,7 @@
  * Node 18+ 의 내장 fetch 를 사용합니다.
  */
 
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -20,7 +20,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 
 const FIRST_ID = 1;
-const LAST_ID = 151;
+const LAST_ID = 1025; // 9세대(페차런트)까지
 const API_BASE = 'https://pokeapi.co/api/v2';
 
 const OUT_DATA_DIR = resolve(ROOT, 'public/data');
@@ -88,21 +88,49 @@ async function collectPokemon(id) {
   };
 }
 
+async function loadExistingData() {
+  const pokemonById = new Map();
+  const koreanNames = {};
+
+  try {
+    const raw = await readFile(OUT_POKEMON_JSON, 'utf-8');
+    const list = JSON.parse(raw);
+    for (const entry of list) {
+      pokemonById.set(entry.id, entry);
+      koreanNames[entry.id] = entry.nameKo;
+    }
+  } catch {
+    // 최초 실행 시 파일이 없을 수 있음
+  }
+
+  return { pokemonById, koreanNames };
+}
+
 async function main() {
   console.log(`포켓몬 데이터 수집 시작 (${FIRST_ID}~${LAST_ID})`);
 
   await mkdir(OUT_IMAGE_DIR, { recursive: true });
   await mkdir(dirname(OUT_KOREAN_NAMES), { recursive: true });
 
-  const pokemonList = [];
-  const koreanNames = {};
+  const { pokemonById, koreanNames } = await loadExistingData();
   const failed = [];
+  let fetchedCount = 0;
+  let skippedCount = 0;
 
   for (let id = FIRST_ID; id <= LAST_ID; id += 1) {
+    const imagePath = resolve(OUT_IMAGE_DIR, `${id}.png`);
+    const hasImage = await readFile(imagePath).then(() => true).catch(() => false);
+
+    if (pokemonById.has(id) && hasImage) {
+      skippedCount += 1;
+      continue;
+    }
+
     try {
       const entry = await collectPokemon(id);
-      pokemonList.push(entry);
+      pokemonById.set(id, entry);
       koreanNames[id] = entry.nameKo;
+      fetchedCount += 1;
       console.log(`  [${id}/${LAST_ID}] ${entry.nameKo} (${entry.nameEn}) 완료`);
     } catch (err) {
       console.error(`  [${id}/${LAST_ID}] 실패: ${err.message}`);
@@ -111,11 +139,15 @@ async function main() {
     await sleep(REQUEST_DELAY_MS);
   }
 
+  const pokemonList = [...pokemonById.values()].sort((a, b) => a.id - b.id);
+
   await writeFile(OUT_POKEMON_JSON, `${JSON.stringify(pokemonList, null, 2)}\n`, 'utf-8');
   await writeFile(OUT_KOREAN_NAMES, `${JSON.stringify(koreanNames, null, 2)}\n`, 'utf-8');
 
   console.log('\n수집 완료');
-  console.log(`  포켓몬: ${pokemonList.length}마리`);
+  console.log(`  신규 수집: ${fetchedCount}마리`);
+  console.log(`  기존 유지: ${skippedCount}마리`);
+  console.log(`  총 포켓몬: ${pokemonList.length}마리`);
   console.log(`  pokemon.json  -> ${OUT_POKEMON_JSON}`);
   console.log(`  korean_names  -> ${OUT_KOREAN_NAMES}`);
   console.log(`  images        -> ${OUT_IMAGE_DIR}`);

@@ -1,6 +1,6 @@
 # 포켓몬 마스터
 
-관동지방(1~151번) 포켓몬 이미지를 보고 이름을 맞추는 퀴즈 웹게임입니다.
+1~9세대(1~1025번) 포켓몬 이미지를 보고 이름을 맞추는 퀴즈 웹게임입니다.
 
 ## 기능
 
@@ -114,7 +114,7 @@ flowchart LR
 | Vite + React 프로젝트 초기화 | `/src` 기본 구조 |
 | 폴더 구조 생성 | `/public/data`, `/data`, `/scripts`, `/worker` |
 | PokeAPI 데이터 수집 스크립트 | `/scripts/fetch_pokemon_data.js` |
-| 1~151번 데이터 + 이미지 저장 | `/public/data/pokemon.json`, 이미지 파일 |
+| 1~1025번 데이터 + 이미지 저장 | `/public/data/pokemon.json`, 이미지 파일 |
 | 한글 이름 매핑 | `/data/korean_names.json` |
 | 랭킹 초기 파일 | `/data/rankings.json` (빈 배열) |
 | `.env.example` 작성 | Worker URL 등 placeholder |
@@ -129,7 +129,7 @@ flowchart LR
 | 작업 | 내용 |
 |------|------|
 | 게임 화면 UI | 포켓몬 이미지, 4지선다 객관식 |
-| 문제 출제 로직 | 1~151번 중 랜덤, 중복 없이 30문제 |
+| 문제 출제 로직 | 1~1025번 중 랜덤, 중복 없이 30문제 |
 | 10단계 × 3문제 진행 | 단계별 진행 표시, 다음 문제 전환 |
 | 정답/오답 피드백 | 즉시 결과 표시 |
 | 로컬 점수 집계 | 30문제 종료 후 총점 |
