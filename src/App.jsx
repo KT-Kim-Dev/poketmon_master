@@ -107,6 +107,7 @@ export default function App() {
 
       {phase === 'playing' && questions.length > 0 && (
         <QuizScreen
+          key={questionIndex}
           baseUrl={baseUrl}
           question={questions[questionIndex]}
           questionIndex={questionIndex}

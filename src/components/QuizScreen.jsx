@@ -26,29 +26,38 @@ export default function QuizScreen({
   const [inputValue, setInputValue] = useState('');
   const [timeLeft, setTimeLeft] = useState(timeLimit);
   const timedOutRef = useRef(false);
+  const onTimeUpRef = useRef(onTimeUp);
 
+  onTimeUpRef.current = onTimeUp;
+
+  // 문제가 바뀔 때 입력값 초기화
   useEffect(() => {
     setInputValue('');
-    setTimeLeft(timeLimit);
-    timedOutRef.current = false;
-  }, [questionIndex, timeLimit]);
+  }, [questionIndex]);
 
+  // 문제별 타이머: questionIndex 변경 시 완전히 새로 시작, 답변 후에는 정지
   useEffect(() => {
     if (answered) return undefined;
 
+    timedOutRef.current = false;
+    setTimeLeft(timeLimit);
+
     const timer = setInterval(() => {
-      setTimeLeft((prev) => Math.max(prev - 1, 0));
+      setTimeLeft((prev) => {
+        if (prev <= 1) {
+          clearInterval(timer);
+          if (!timedOutRef.current) {
+            timedOutRef.current = true;
+            onTimeUpRef.current();
+          }
+          return 0;
+        }
+        return prev - 1;
+      });
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [questionIndex, answered, timeLimit]);
-
-  useEffect(() => {
-    if (timeLeft <= 0 && !answered && !timedOutRef.current) {
-      timedOutRef.current = true;
-      onTimeUp();
-    }
-  }, [timeLeft, answered, onTimeUp]);
+  }, [questionIndex, timeLimit, answered]);
 
   const handleTextSubmit = (e) => {
     e.preventDefault();
@@ -78,6 +87,7 @@ export default function QuizScreen({
 
       <div className="timer-bar" aria-hidden="true">
         <div
+          key={`timer-${questionIndex}`}
           className={`timer-fill${timerUrgent ? ' urgent' : ''}`}
           style={{ width: `${timerRatio * 100}%` }}
         />
