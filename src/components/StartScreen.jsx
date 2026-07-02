@@ -3,7 +3,6 @@ import {
   TOTAL_QUESTIONS,
   TOTAL_STAGES,
   QUESTIONS_PER_STAGE,
-  MULTIPLE_CHOICE_MAX_STAGE,
   SILHOUETTE_MIN_STAGE,
   STAGE_TIME_MAX,
   STAGE_TIME_MIN,
@@ -31,11 +30,7 @@ export default function StartScreen({ initialNickname = '', onStart }) {
           <strong>{TOTAL_QUESTIONS}문제</strong>
         </p>
         <p>
-          <strong>1~{MULTIPLE_CHOICE_MAX_STAGE}단계</strong>: 4지선다 객관식
-        </p>
-        <p>
-          <strong>{MULTIPLE_CHOICE_MAX_STAGE + 1}~{TOTAL_STAGES}단계</strong>: 이름 직접 입력
-          (주관식)
+          <strong>1~{TOTAL_STAGES}단계</strong>: 4지선다 객관식
         </p>
         <p>
           <strong>{SILHOUETTE_MIN_STAGE}~{TOTAL_STAGES}단계</strong>: 포켓몬 이미지 검정
