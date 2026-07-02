@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { TOTAL_QUESTIONS, isSilhouetteStage } from '../utils/game';
+import { TOTAL_QUESTIONS } from '../utils/game';
 
 export default function QuizScreen({
   baseUrl,
@@ -16,10 +16,9 @@ export default function QuizScreen({
   onTextSubmit,
   onNext,
 }) {
-  const { pokemon, type, choices } = question;
+  const { pokemon, type, choices, isSilhouette } = question;
   const isLastQuestion = questionIndex === TOTAL_QUESTIONS - 1;
   const isChoice = type === 'choice';
-  const isSilhouette = isSilhouetteStage(stage);
 
   const [inputValue, setInputValue] = useState('');
 
@@ -39,6 +38,7 @@ export default function QuizScreen({
         <div className="stage-badge">
           {stage}단계 · {questionInStage}/3
           <span className="mode-tag">{isChoice ? '객관식' : '주관식'}</span>
+          {isSilhouette && <span className="mode-tag silhouette-tag">실루엣</span>}
         </div>
         <div className="progress-text">
           {questionIndex + 1} / {TOTAL_QUESTIONS} · 점수 {score}
@@ -60,11 +60,18 @@ export default function QuizScreen({
               ? '이 포켓몬의 이름은?'
               : '포켓몬 이름을 직접 입력하세요'}
         </p>
-        <img
-          className={`pokemon-image${isSilhouette ? ' silhouette' : ''}`}
-          src={`${baseUrl}${pokemon.image}`}
-          alt="포켓몬 이미지"
-        />
+        <div className={`pokemon-image-wrap${isSilhouette ? ' silhouette-wrap' : ''}`}>
+          <img
+            className={`pokemon-image${isSilhouette ? ' silhouette' : ''}`}
+            src={`${baseUrl}${pokemon.image}`}
+            alt="포켓몬 이미지"
+            style={
+              isSilhouette
+                ? { filter: 'grayscale(100%) brightness(0) contrast(1.25)' }
+                : undefined
+            }
+          />
+        </div>
       </div>
 
       {isChoice ? (

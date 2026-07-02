@@ -239,10 +239,29 @@ code {
   width: 200px;
   height: 200px;
   object-fit: contain;
+  display: block;
+}
+
+.pokemon-image-wrap {
+  display: inline-block;
+  line-height: 0;
+}
+
+.pokemon-image-wrap.silhouette-wrap {
+  padding: 0.75rem;
+  background: #f3f4f6;
+  border: 2px dashed #374151;
+  border-radius: 1rem;
 }
 
 .pokemon-image.silhouette {
-  filter: brightness(0);
+  filter: grayscale(100%) brightness(0) contrast(1.25);
+  -webkit-filter: grayscale(100%) brightness(0) contrast(1.25);
+}
+
+.mode-tag.silhouette-tag {
+  background: #111827;
+  color: #fff;
 }
 
 .choices {

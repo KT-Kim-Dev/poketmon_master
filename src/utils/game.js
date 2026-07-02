@@ -40,6 +40,11 @@ export function isSilhouetteStage(stage) {
   return stage >= SILHOUETTE_MIN_STAGE;
 }
 
+/** questionIndex 기준 실루엣 여부 (8단계 = index 21부터) */
+export function isSilhouetteQuestion(questionIndex) {
+  return isSilhouetteStage(getStageInfo(questionIndex).stage);
+}
+
 /** 1~4단계: 객관식, 5~10단계: 주관식 */
 export function getQuestionType(questionIndex) {
   const { stage } = getStageInfo(questionIndex);
@@ -51,9 +56,11 @@ export function createQuestions(allPokemon) {
   const selected = pickRandomPokemon(allPokemon, TOTAL_QUESTIONS);
   return selected.map((pokemon, index) => {
     const type = getQuestionType(index);
+    const isSilhouette = isSilhouetteQuestion(index);
     return {
       pokemon,
       type,
+      isSilhouette,
       choices: type === 'choice' ? buildChoices(pokemon, allPokemon) : null,
     };
   });
