@@ -1,0 +1,11 @@
+name = "pokemon-master-worker"
+main = "src/index.js"
+compatibility_date = "2024-09-23"
+
+# 로컬 개발용 환경 변수 (선택)
+# GitHub secret 미설정 시 in-memory 랭킹 저장소로 동작합니다.
+# [vars]
+# GITHUB_OWNER = "your-github-id"
+# GITHUB_REPO = "your-repo-name"
+
+# GitHub token은 wrangler secret put GITHUB_TOKEN 으로 설정하세요.

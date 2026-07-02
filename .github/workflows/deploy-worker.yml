@@ -1,0 +1,50 @@
+name: Deploy Worker
+
+# Worker 코드 변경 시 Cloudflare에 배포합니다.
+# 필요한 GitHub Secrets:
+#   CLOUDFLARE_API_TOKEN  - Cloudflare API 토큰 (Workers Edit 권한)
+#   CLOUDFLARE_ACCOUNT_ID - Cloudflare 계정 ID
+#   WORKER_GITHUB_TOKEN   - rankings.json write 권한 PAT (repo scope)
+#
+# Repository Variables (선택, wrangler secret 대신 vars로 전달):
+#   GITHUB_OWNER, GITHUB_REPO 는 github context에서 자동 주입
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'worker/**'
+      - 'data/rankings.json'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: worker/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: worker
+
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: worker
+          command: deploy --var GITHUB_OWNER:${{ github.repository_owner }} --var GITHUB_REPO:${{ github.event.repository.name }}
+          secrets: |
+            GITHUB_TOKEN
+        env:
+          GITHUB_TOKEN: ${{ secrets.WORKER_GITHUB_TOKEN }}
+          GITHUB_OWNER: ${{ github.repository_owner }}
+          GITHUB_REPO: ${{ github.event.repository.name }}

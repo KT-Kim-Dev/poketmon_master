@@ -1,0 +1,6 @@
+# wrangler dev 로컬 테스트용 (선택)
+# cp .dev.vars.example .dev.vars
+
+# GITHUB_OWNER=your-github-id
+# GITHUB_REPO=your-repo-name
+# GITHUB_TOKEN=ghp_xxxxxxxx

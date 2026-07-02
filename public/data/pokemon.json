@@ -1,0 +1,908 @@
+[
+  {
+    "id": 1,
+    "nameKo": "이상해씨",
+    "nameEn": "Bulbasaur",
+    "image": "data/images/1.png"
+  },
+  {
+    "id": 2,
+    "nameKo": "이상해풀",
+    "nameEn": "Ivysaur",
+    "image": "data/images/2.png"
+  },
+  {
+    "id": 3,
+    "nameKo": "이상해꽃",
+    "nameEn": "Venusaur",
+    "image": "data/images/3.png"
+  },
+  {
+    "id": 4,
+    "nameKo": "파이리",
+    "nameEn": "Charmander",
+    "image": "data/images/4.png"
+  },
+  {
+    "id": 5,
+    "nameKo": "리자드",
+    "nameEn": "Charmeleon",
+    "image": "data/images/5.png"
+  },
+  {
+    "id": 6,
+    "nameKo": "리자몽",
+    "nameEn": "Charizard",
+    "image": "data/images/6.png"
+  },
+  {
+    "id": 7,
+    "nameKo": "꼬부기",
+    "nameEn": "Squirtle",
+    "image": "data/images/7.png"
+  },
+  {
+    "id": 8,
+    "nameKo": "어니부기",
+    "nameEn": "Wartortle",
+    "image": "data/images/8.png"
+  },
+  {
+    "id": 9,
+    "nameKo": "거북왕",
+    "nameEn": "Blastoise",
+    "image": "data/images/9.png"
+  },
+  {
+    "id": 10,
+    "nameKo": "캐터피",
+    "nameEn": "Caterpie",
+    "image": "data/images/10.png"
+  },
+  {
+    "id": 11,
+    "nameKo": "단데기",
+    "nameEn": "Metapod",
+    "image": "data/images/11.png"
+  },
+  {
+    "id": 12,
+    "nameKo": "버터플",
+    "nameEn": "Butterfree",
+    "image": "data/images/12.png"
+  },
+  {
+    "id": 13,
+    "nameKo": "뿔충이",
+    "nameEn": "Weedle",
+    "image": "data/images/13.png"
+  },
+  {
+    "id": 14,
+    "nameKo": "딱충이",
+    "nameEn": "Kakuna",
+    "image": "data/images/14.png"
+  },
+  {
+    "id": 15,
+    "nameKo": "독침붕",
+    "nameEn": "Beedrill",
+    "image": "data/images/15.png"
+  },
+  {
+    "id": 16,
+    "nameKo": "구구",
+    "nameEn": "Pidgey",
+    "image": "data/images/16.png"
+  },
+  {
+    "id": 17,
+    "nameKo": "피죤",
+    "nameEn": "Pidgeotto",
+    "image": "data/images/17.png"
+  },
+  {
+    "id": 18,
+    "nameKo": "피죤투",
+    "nameEn": "Pidgeot",
+    "image": "data/images/18.png"
+  },
+  {
+    "id": 19,
+    "nameKo": "꼬렛",
+    "nameEn": "Rattata",
+    "image": "data/images/19.png"
+  },
+  {
+    "id": 20,
+    "nameKo": "레트라",
+    "nameEn": "Raticate",
+    "image": "data/images/20.png"
+  },
+  {
+    "id": 21,
+    "nameKo": "깨비참",
+    "nameEn": "Spearow",
+    "image": "data/images/21.png"
+  },
+  {
+    "id": 22,
+    "nameKo": "깨비드릴조",
+    "nameEn": "Fearow",
+    "image": "data/images/22.png"
+  },
+  {
+    "id": 23,
+    "nameKo": "아보",
+    "nameEn": "Ekans",
+    "image": "data/images/23.png"
+  },
+  {
+    "id": 24,
+    "nameKo": "아보크",
+    "nameEn": "Arbok",
+    "image": "data/images/24.png"
+  },
+  {
+    "id": 25,
+    "nameKo": "피카츄",
+    "nameEn": "Pikachu",
+    "image": "data/images/25.png"
+  },
+  {
+    "id": 26,
+    "nameKo": "라이츄",
+    "nameEn": "Raichu",
+    "image": "data/images/26.png"
+  },
+  {
+    "id": 27,
+    "nameKo": "모래두지",
+    "nameEn": "Sandshrew",
+    "image": "data/images/27.png"
+  },
+  {
+    "id": 28,
+    "nameKo": "고지",
+    "nameEn": "Sandslash",
+    "image": "data/images/28.png"
+  },
+  {
+    "id": 29,
+    "nameKo": "니드런♀",
+    "nameEn": "Nidoran♀",
+    "image": "data/images/29.png"
+  },
+  {
+    "id": 30,
+    "nameKo": "니드리나",
+    "nameEn": "Nidorina",
+    "image": "data/images/30.png"
+  },
+  {
+    "id": 31,
+    "nameKo": "니드퀸",
+    "nameEn": "Nidoqueen",
+    "image": "data/images/31.png"
+  },
+  {
+    "id": 32,
+    "nameKo": "니드런♂",
+    "nameEn": "Nidoran♂",
+    "image": "data/images/32.png"
+  },
+  {
+    "id": 33,
+    "nameKo": "니드리노",
+    "nameEn": "Nidorino",
+    "image": "data/images/33.png"
+  },
+  {
+    "id": 34,
+    "nameKo": "니드킹",
+    "nameEn": "Nidoking",
+    "image": "data/images/34.png"
+  },
+  {
+    "id": 35,
+    "nameKo": "삐삐",
+    "nameEn": "Clefairy",
+    "image": "data/images/35.png"
+  },
+  {
+    "id": 36,
+    "nameKo": "픽시",
+    "nameEn": "Clefable",
+    "image": "data/images/36.png"
+  },
+  {
+    "id": 37,
+    "nameKo": "식스테일",
+    "nameEn": "Vulpix",
+    "image": "data/images/37.png"
+  },
+  {
+    "id": 38,
+    "nameKo": "나인테일",
+    "nameEn": "Ninetales",
+    "image": "data/images/38.png"
+  },
+  {
+    "id": 39,
+    "nameKo": "푸린",
+    "nameEn": "Jigglypuff",
+    "image": "data/images/39.png"
+  },
+  {
+    "id": 40,
+    "nameKo": "푸크린",
+    "nameEn": "Wigglytuff",
+    "image": "data/images/40.png"
+  },
+  {
+    "id": 41,
+    "nameKo": "주뱃",
+    "nameEn": "Zubat",
+    "image": "data/images/41.png"
+  },
+  {
+    "id": 42,
+    "nameKo": "골뱃",
+    "nameEn": "Golbat",
+    "image": "data/images/42.png"
+  },
+  {
+    "id": 43,
+    "nameKo": "뚜벅쵸",
+    "nameEn": "Oddish",
+    "image": "data/images/43.png"
+  },
+  {
+    "id": 44,
+    "nameKo": "냄새꼬",
+    "nameEn": "Gloom",
+    "image": "data/images/44.png"
+  },
+  {
+    "id": 45,
+    "nameKo": "라플레시아",
+    "nameEn": "Vileplume",
+    "image": "data/images/45.png"
+  },
+  {
+    "id": 46,
+    "nameKo": "파라스",
+    "nameEn": "Paras",
+    "image": "data/images/46.png"
+  },
+  {
+    "id": 47,
+    "nameKo": "파라섹트",
+    "nameEn": "Parasect",
+    "image": "data/images/47.png"
+  },
+  {
+    "id": 48,
+    "nameKo": "콘팡",
+    "nameEn": "Venonat",
+    "image": "data/images/48.png"
+  },
+  {
+    "id": 49,
+    "nameKo": "도나리",
+    "nameEn": "Venomoth",
+    "image": "data/images/49.png"
+  },
+  {
+    "id": 50,
+    "nameKo": "디그다",
+    "nameEn": "Diglett",
+    "image": "data/images/50.png"
+  },
+  {
+    "id": 51,
+    "nameKo": "닥트리오",
+    "nameEn": "Dugtrio",
+    "image": "data/images/51.png"
+  },
+  {
+    "id": 52,
+    "nameKo": "나옹",
+    "nameEn": "Meowth",
+    "image": "data/images/52.png"
+  },
+  {
+    "id": 53,
+    "nameKo": "페르시온",
+    "nameEn": "Persian",
+    "image": "data/images/53.png"
+  },
+  {
+    "id": 54,
+    "nameKo": "고라파덕",
+    "nameEn": "Psyduck",
+    "image": "data/images/54.png"
+  },
+  {
+    "id": 55,
+    "nameKo": "골덕",
+    "nameEn": "Golduck",
+    "image": "data/images/55.png"
+  },
+  {
+    "id": 56,
+    "nameKo": "망키",
+    "nameEn": "Mankey",
+    "image": "data/images/56.png"
+  },
+  {
+    "id": 57,
+    "nameKo": "성원숭",
+    "nameEn": "Primeape",
+    "image": "data/images/57.png"
+  },
+  {
+    "id": 58,
+    "nameKo": "가디",
+    "nameEn": "Growlithe",
+    "image": "data/images/58.png"
+  },
+  {
+    "id": 59,
+    "nameKo": "윈디",
+    "nameEn": "Arcanine",
+    "image": "data/images/59.png"
+  },
+  {
+    "id": 60,
+    "nameKo": "발챙이",
+    "nameEn": "Poliwag",
+    "image": "data/images/60.png"
+  },
+  {
+    "id": 61,
+    "nameKo": "슈륙챙이",
+    "nameEn": "Poliwhirl",
+    "image": "data/images/61.png"
+  },
+  {
+    "id": 62,
+    "nameKo": "강챙이",
+    "nameEn": "Poliwrath",
+    "image": "data/images/62.png"
+  },
+  {
+    "id": 63,
+    "nameKo": "캐이시",
+    "nameEn": "Abra",
+    "image": "data/images/63.png"
+  },
+  {
+    "id": 64,
+    "nameKo": "윤겔라",
+    "nameEn": "Kadabra",
+    "image": "data/images/64.png"
+  },
+  {
+    "id": 65,
+    "nameKo": "후딘",
+    "nameEn": "Alakazam",
+    "image": "data/images/65.png"
+  },
+  {
+    "id": 66,
+    "nameKo": "알통몬",
+    "nameEn": "Machop",
+    "image": "data/images/66.png"
+  },
+  {
+    "id": 67,
+    "nameKo": "근육몬",
+    "nameEn": "Machoke",
+    "image": "data/images/67.png"
+  },
+  {
+    "id": 68,
+    "nameKo": "괴력몬",
+    "nameEn": "Machamp",
+    "image": "data/images/68.png"
+  },
+  {
+    "id": 69,
+    "nameKo": "모다피",
+    "nameEn": "Bellsprout",
+    "image": "data/images/69.png"
+  },
+  {
+    "id": 70,
+    "nameKo": "우츠동",
+    "nameEn": "Weepinbell",
+    "image": "data/images/70.png"
+  },
+  {
+    "id": 71,
+    "nameKo": "우츠보트",
+    "nameEn": "Victreebel",
+    "image": "data/images/71.png"
+  },
+  {
+    "id": 72,
+    "nameKo": "왕눈해",
+    "nameEn": "Tentacool",
+    "image": "data/images/72.png"
+  },
+  {
+    "id": 73,
+    "nameKo": "독파리",
+    "nameEn": "Tentacruel",
+    "image": "data/images/73.png"
+  },
+  {
+    "id": 74,
+    "nameKo": "꼬마돌",
+    "nameEn": "Geodude",
+    "image": "data/images/74.png"
+  },
+  {
+    "id": 75,
+    "nameKo": "데구리",
+    "nameEn": "Graveler",
+    "image": "data/images/75.png"
+  },
+  {
+    "id": 76,
+    "nameKo": "딱구리",
+    "nameEn": "Golem",
+    "image": "data/images/76.png"
+  },
+  {
+    "id": 77,
+    "nameKo": "포니타",
+    "nameEn": "Ponyta",
+    "image": "data/images/77.png"
+  },
+  {
+    "id": 78,
+    "nameKo": "날쌩마",
+    "nameEn": "Rapidash",
+    "image": "data/images/78.png"
+  },
+  {
+    "id": 79,
+    "nameKo": "야돈",
+    "nameEn": "Slowpoke",
+    "image": "data/images/79.png"
+  },
+  {
+    "id": 80,
+    "nameKo": "야도란",
+    "nameEn": "Slowbro",
+    "image": "data/images/80.png"
+  },
+  {
+    "id": 81,
+    "nameKo": "코일",
+    "nameEn": "Magnemite",
+    "image": "data/images/81.png"
+  },
+  {
+    "id": 82,
+    "nameKo": "레어코일",
+    "nameEn": "Magneton",
+    "image": "data/images/82.png"
+  },
+  {
+    "id": 83,
+    "nameKo": "파오리",
+    "nameEn": "Farfetch’d",
+    "image": "data/images/83.png"
+  },
+  {
+    "id": 84,
+    "nameKo": "두두",
+    "nameEn": "Doduo",
+    "image": "data/images/84.png"
+  },
+  {
+    "id": 85,
+    "nameKo": "두트리오",
+    "nameEn": "Dodrio",
+    "image": "data/images/85.png"
+  },
+  {
+    "id": 86,
+    "nameKo": "쥬쥬",
+    "nameEn": "Seel",
+    "image": "data/images/86.png"
+  },
+  {
+    "id": 87,
+    "nameKo": "쥬레곤",
+    "nameEn": "Dewgong",
+    "image": "data/images/87.png"
+  },
+  {
+    "id": 88,
+    "nameKo": "질퍽이",
+    "nameEn": "Grimer",
+    "image": "data/images/88.png"
+  },
+  {
+    "id": 89,
+    "nameKo": "질뻐기",
+    "nameEn": "Muk",
+    "image": "data/images/89.png"
+  },
+  {
+    "id": 90,
+    "nameKo": "셀러",
+    "nameEn": "Shellder",
+    "image": "data/images/90.png"
+  },
+  {
+    "id": 91,
+    "nameKo": "파르셀",
+    "nameEn": "Cloyster",
+    "image": "data/images/91.png"
+  },
+  {
+    "id": 92,
+    "nameKo": "고오스",
+    "nameEn": "Gastly",
+    "image": "data/images/92.png"
+  },
+  {
+    "id": 93,
+    "nameKo": "고우스트",
+    "nameEn": "Haunter",
+    "image": "data/images/93.png"
+  },
+  {
+    "id": 94,
+    "nameKo": "팬텀",
+    "nameEn": "Gengar",
+    "image": "data/images/94.png"
+  },
+  {
+    "id": 95,
+    "nameKo": "롱스톤",
+    "nameEn": "Onix",
+    "image": "data/images/95.png"
+  },
+  {
+    "id": 96,
+    "nameKo": "슬리프",
+    "nameEn": "Drowzee",
+    "image": "data/images/96.png"
+  },
+  {
+    "id": 97,
+    "nameKo": "슬리퍼",
+    "nameEn": "Hypno",
+    "image": "data/images/97.png"
+  },
+  {
+    "id": 98,
+    "nameKo": "크랩",
+    "nameEn": "Krabby",
+    "image": "data/images/98.png"
+  },
+  {
+    "id": 99,
+    "nameKo": "킹크랩",
+    "nameEn": "Kingler",
+    "image": "data/images/99.png"
+  },
+  {
+    "id": 100,
+    "nameKo": "찌리리공",
+    "nameEn": "Voltorb",
+    "image": "data/images/100.png"
+  },
+  {
+    "id": 101,
+    "nameKo": "붐볼",
+    "nameEn": "Electrode",
+    "image": "data/images/101.png"
+  },
+  {
+    "id": 102,
+    "nameKo": "아라리",
+    "nameEn": "Exeggcute",
+    "image": "data/images/102.png"
+  },
+  {
+    "id": 103,
+    "nameKo": "나시",
+    "nameEn": "Exeggutor",
+    "image": "data/images/103.png"
+  },
+  {
+    "id": 104,
+    "nameKo": "탕구리",
+    "nameEn": "Cubone",
+    "image": "data/images/104.png"
+  },
+  {
+    "id": 105,
+    "nameKo": "텅구리",
+    "nameEn": "Marowak",
+    "image": "data/images/105.png"
+  },
+  {
+    "id": 106,
+    "nameKo": "시라소몬",
+    "nameEn": "Hitmonlee",
+    "image": "data/images/106.png"
+  },
+  {
+    "id": 107,
+    "nameKo": "홍수몬",
+    "nameEn": "Hitmonchan",
+    "image": "data/images/107.png"
+  },
+  {
+    "id": 108,
+    "nameKo": "내루미",
+    "nameEn": "Lickitung",
+    "image": "data/images/108.png"
+  },
+  {
+    "id": 109,
+    "nameKo": "또가스",
+    "nameEn": "Koffing",
+    "image": "data/images/109.png"
+  },
+  {
+    "id": 110,
+    "nameKo": "또도가스",
+    "nameEn": "Weezing",
+    "image": "data/images/110.png"
+  },
+  {
+    "id": 111,
+    "nameKo": "뿔카노",
+    "nameEn": "Rhyhorn",
+    "image": "data/images/111.png"
+  },
+  {
+    "id": 112,
+    "nameKo": "코뿌리",
+    "nameEn": "Rhydon",
+    "image": "data/images/112.png"
+  },
+  {
+    "id": 113,
+    "nameKo": "럭키",
+    "nameEn": "Chansey",
+    "image": "data/images/113.png"
+  },
+  {
+    "id": 114,
+    "nameKo": "덩쿠리",
+    "nameEn": "Tangela",
+    "image": "data/images/114.png"
+  },
+  {
+    "id": 115,
+    "nameKo": "캥카",
+    "nameEn": "Kangaskhan",
+    "image": "data/images/115.png"
+  },
+  {
+    "id": 116,
+    "nameKo": "쏘드라",
+    "nameEn": "Horsea",
+    "image": "data/images/116.png"
+  },
+  {
+    "id": 117,
+    "nameKo": "시드라",
+    "nameEn": "Seadra",
+    "image": "data/images/117.png"
+  },
+  {
+    "id": 118,
+    "nameKo": "콘치",
+    "nameEn": "Goldeen",
+    "image": "data/images/118.png"
+  },
+  {
+    "id": 119,
+    "nameKo": "왕콘치",
+    "nameEn": "Seaking",
+    "image": "data/images/119.png"
+  },
+  {
+    "id": 120,
+    "nameKo": "별가사리",
+    "nameEn": "Staryu",
+    "image": "data/images/120.png"
+  },
+  {
+    "id": 121,
+    "nameKo": "아쿠스타",
+    "nameEn": "Starmie",
+    "image": "data/images/121.png"
+  },
+  {
+    "id": 122,
+    "nameKo": "마임맨",
+    "nameEn": "Mr. Mime",
+    "image": "data/images/122.png"
+  },
+  {
+    "id": 123,
+    "nameKo": "스라크",
+    "nameEn": "Scyther",
+    "image": "data/images/123.png"
+  },
+  {
+    "id": 124,
+    "nameKo": "루주라",
+    "nameEn": "Jynx",
+    "image": "data/images/124.png"
+  },
+  {
+    "id": 125,
+    "nameKo": "에레브",
+    "nameEn": "Electabuzz",
+    "image": "data/images/125.png"
+  },
+  {
+    "id": 126,
+    "nameKo": "마그마",
+    "nameEn": "Magmar",
+    "image": "data/images/126.png"
+  },
+  {
+    "id": 127,
+    "nameKo": "쁘사이저",
+    "nameEn": "Pinsir",
+    "image": "data/images/127.png"
+  },
+  {
+    "id": 128,
+    "nameKo": "켄타로스",
+    "nameEn": "Tauros",
+    "image": "data/images/128.png"
+  },
+  {
+    "id": 129,
+    "nameKo": "잉어킹",
+    "nameEn": "Magikarp",
+    "image": "data/images/129.png"
+  },
+  {
+    "id": 130,
+    "nameKo": "갸라도스",
+    "nameEn": "Gyarados",
+    "image": "data/images/130.png"
+  },
+  {
+    "id": 131,
+    "nameKo": "라프라스",
+    "nameEn": "Lapras",
+    "image": "data/images/131.png"
+  },
+  {
+    "id": 132,
+    "nameKo": "메타몽",
+    "nameEn": "Ditto",
+    "image": "data/images/132.png"
+  },
+  {
+    "id": 133,
+    "nameKo": "이브이",
+    "nameEn": "Eevee",
+    "image": "data/images/133.png"
+  },
+  {
+    "id": 134,
+    "nameKo": "샤미드",
+    "nameEn": "Vaporeon",
+    "image": "data/images/134.png"
+  },
+  {
+    "id": 135,
+    "nameKo": "쥬피썬더",
+    "nameEn": "Jolteon",
+    "image": "data/images/135.png"
+  },
+  {
+    "id": 136,
+    "nameKo": "부스터",
+    "nameEn": "Flareon",
+    "image": "data/images/136.png"
+  },
+  {
+    "id": 137,
+    "nameKo": "폴리곤",
+    "nameEn": "Porygon",
+    "image": "data/images/137.png"
+  },
+  {
+    "id": 138,
+    "nameKo": "암나이트",
+    "nameEn": "Omanyte",
+    "image": "data/images/138.png"
+  },
+  {
+    "id": 139,
+    "nameKo": "암스타",
+    "nameEn": "Omastar",
+    "image": "data/images/139.png"
+  },
+  {
+    "id": 140,
+    "nameKo": "투구",
+    "nameEn": "Kabuto",
+    "image": "data/images/140.png"
+  },
+  {
+    "id": 141,
+    "nameKo": "투구푸스",
+    "nameEn": "Kabutops",
+    "image": "data/images/141.png"
+  },
+  {
+    "id": 142,
+    "nameKo": "프테라",
+    "nameEn": "Aerodactyl",
+    "image": "data/images/142.png"
+  },
+  {
+    "id": 143,
+    "nameKo": "잠만보",
+    "nameEn": "Snorlax",
+    "image": "data/images/143.png"
+  },
+  {
+    "id": 144,
+    "nameKo": "프리져",
+    "nameEn": "Articuno",
+    "image": "data/images/144.png"
+  },
+  {
+    "id": 145,
+    "nameKo": "썬더",
+    "nameEn": "Zapdos",
+    "image": "data/images/145.png"
+  },
+  {
+    "id": 146,
+    "nameKo": "파이어",
+    "nameEn": "Moltres",
+    "image": "data/images/146.png"
+  },
+  {
+    "id": 147,
+    "nameKo": "미뇽",
+    "nameEn": "Dratini",
+    "image": "data/images/147.png"
+  },
+  {
+    "id": 148,
+    "nameKo": "신뇽",
+    "nameEn": "Dragonair",
+    "image": "data/images/148.png"
+  },
+  {
+    "id": 149,
+    "nameKo": "망나뇽",
+    "nameEn": "Dragonite",
+    "image": "data/images/149.png"
+  },
+  {
+    "id": 150,
+    "nameKo": "뮤츠",
+    "nameEn": "Mewtwo",
+    "image": "data/images/150.png"
+  },
+  {
+    "id": 151,
+    "nameKo": "뮤",
+    "nameEn": "Mew",
+    "image": "data/images/151.png"
+  }
+]

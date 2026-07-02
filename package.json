@@ -1,0 +1,21 @@
+{
+  "name": "pokemon-master",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "관동지방(1~151번) 포켓몬 이미지를 보고 이름을 맞추는 퀴즈 웹게임",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "fetch-data": "node scripts/fetch_pokemon_data.js"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.11"
+  }
+}
