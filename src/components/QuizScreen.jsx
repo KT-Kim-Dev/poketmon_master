@@ -25,9 +25,14 @@ export default function QuizScreen({
 
   const [inputValue, setInputValue] = useState('');
   const [timeLeft, setTimeLeft] = useState(timeLimit);
-  const timedOutRef = useRef(false);
-  const onTimeUpRef = useRef(onTimeUp);
 
+  // 항상 최신 값을 참조하는 refs (stale closure 방지)
+  const answeredRef = useRef(false);
+  answeredRef.current = answered;
+
+  const firedRef = useRef(false);
+
+  const onTimeUpRef = useRef(onTimeUp);
   onTimeUpRef.current = onTimeUp;
 
   // 문제가 바뀔 때 입력값 초기화
@@ -35,29 +40,40 @@ export default function QuizScreen({
     setInputValue('');
   }, [questionIndex]);
 
-  // 문제별 타이머: questionIndex 변경 시 완전히 새로 시작, 답변 후에는 정지
+  // 타이머: questionIndex 변경 시에만 완전히 초기화
+  // - Date.now() 기반으로 드리프트 없이 정확하게 계산 (Bug 2 fix)
+  // - answered는 dep에서 제외 → 답변 시 타이머 재시작 없음 (Bug 1 fix)
+  // - setState 업데이터 안에서 onTimeUp 호출하지 않음 (Bug 1 fix)
   useEffect(() => {
-    if (answered) return undefined;
-
-    timedOutRef.current = false;
+    firedRef.current = false;
     setTimeLeft(timeLimit);
 
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev <= 1) {
-          clearInterval(timer);
-          if (!timedOutRef.current) {
-            timedOutRef.current = true;
-            onTimeUpRef.current();
-          }
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
+    const endTime = Date.now() + timeLimit * 1000;
+    let timerId;
 
-    return () => clearInterval(timer);
-  }, [questionIndex, timeLimit, answered]);
+    const tick = () => {
+      // 이미 답변했으면 타이머 중단 (ref로 최신 answered 확인)
+      if (answeredRef.current) return;
+
+      const remaining = Math.max(0, Math.ceil((endTime - Date.now()) / 1000));
+      setTimeLeft(remaining);
+
+      if (remaining <= 0) {
+        if (!firedRef.current) {
+          firedRef.current = true;
+          onTimeUpRef.current();
+        }
+        return;
+      }
+
+      timerId = setTimeout(tick, 200); // 200ms 간격으로 정확하게 갱신
+    };
+
+    timerId = setTimeout(tick, 200);
+
+    return () => clearTimeout(timerId);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [questionIndex, timeLimit]); // answered 제외: 답변 시 타이머 재시작 방지
 
   const handleTextSubmit = (e) => {
     e.preventDefault();
@@ -87,7 +103,6 @@ export default function QuizScreen({
 
       <div className="timer-bar" aria-hidden="true">
         <div
-          key={`timer-${questionIndex}`}
           className={`timer-fill${timerUrgent ? ' urgent' : ''}`}
           style={{ width: `${timerRatio * 100}%` }}
         />
@@ -140,7 +155,6 @@ export default function QuizScreen({
               if (choice.id === pokemon.id) className += ' correct';
               else if (choice.id === selectedId) className += ' wrong';
             }
-
             return (
               <button
                 key={choice.id}
