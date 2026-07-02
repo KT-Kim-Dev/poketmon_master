@@ -3,6 +3,7 @@ export const QUESTIONS_PER_STAGE = 3;
 export const TOTAL_STAGES = TOTAL_QUESTIONS / QUESTIONS_PER_STAGE;
 export const CHOICES_COUNT = 4;
 export const MULTIPLE_CHOICE_MAX_STAGE = 4;
+export const SILHOUETTE_MIN_STAGE = 8;
 
 /** Fisher-Yates 셔플 */
 export function shuffle(array) {
@@ -32,6 +33,11 @@ export function getStageInfo(questionIndex) {
     stage: Math.floor(questionIndex / QUESTIONS_PER_STAGE) + 1,
     questionInStage: (questionIndex % QUESTIONS_PER_STAGE) + 1,
   };
+}
+
+/** 8단계 이상: 포켓몬 이미지 실루엣(검정) 표시 */
+export function isSilhouetteStage(stage) {
+  return stage >= SILHOUETTE_MIN_STAGE;
 }
 
 /** 1~4단계: 객관식, 5~10단계: 주관식 */

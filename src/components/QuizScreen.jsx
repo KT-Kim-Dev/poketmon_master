@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { TOTAL_QUESTIONS } from '../utils/game';
+import { TOTAL_QUESTIONS, isSilhouetteStage } from '../utils/game';
 
 export default function QuizScreen({
   baseUrl,
@@ -19,6 +19,7 @@ export default function QuizScreen({
   const { pokemon, type, choices } = question;
   const isLastQuestion = questionIndex === TOTAL_QUESTIONS - 1;
   const isChoice = type === 'choice';
+  const isSilhouette = isSilhouetteStage(stage);
 
   const [inputValue, setInputValue] = useState('');
 
@@ -53,10 +54,14 @@ export default function QuizScreen({
 
       <div className="question-card">
         <p className="question-prompt">
-          {isChoice ? '이 포켓몬의 이름은?' : '포켓몬 이름을 직접 입력하세요'}
+          {isSilhouette
+            ? '검은 실루엣만 보입니다. 포켓몬 이름을 맞춰보세요!'
+            : isChoice
+              ? '이 포켓몬의 이름은?'
+              : '포켓몬 이름을 직접 입력하세요'}
         </p>
         <img
-          className="pokemon-image"
+          className={`pokemon-image${isSilhouette ? ' silhouette' : ''}`}
           src={`${baseUrl}${pokemon.image}`}
           alt="포켓몬 이미지"
         />

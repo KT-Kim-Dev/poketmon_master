@@ -4,6 +4,7 @@ import {
   TOTAL_STAGES,
   QUESTIONS_PER_STAGE,
   MULTIPLE_CHOICE_MAX_STAGE,
+  SILHOUETTE_MIN_STAGE,
   GRADE_TABLE,
   normalizeNickname,
 } from '../utils/game';
@@ -33,6 +34,10 @@ export default function StartScreen({ initialNickname = '', onStart }) {
         <p>
           <strong>{MULTIPLE_CHOICE_MAX_STAGE + 1}~{TOTAL_STAGES}단계</strong>: 이름 직접 입력
           (주관식)
+        </p>
+        <p>
+          <strong>{SILHOUETTE_MIN_STAGE}~{TOTAL_STAGES}단계</strong>: 포켓몬 이미지 검정
+          실루엣
         </p>
         <p>정답 1문제당 1점 · 최고 {TOTAL_QUESTIONS}점</p>
       </div>

@@ -241,6 +241,10 @@ code {
   object-fit: contain;
 }
 
+.pokemon-image.silhouette {
+  filter: brightness(0);
+}
+
 .choices {
   display: grid;
   grid-template-columns: 1fr 1fr;
